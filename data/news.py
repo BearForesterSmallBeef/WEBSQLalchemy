@@ -14,7 +14,7 @@ class News(SqlAlchemyBase):
                              default=datetime.now)
     is_private = sa.Column(sa.Boolean, default=True)
     user_id = sa.Column(sa.Integer,
-                        sa.ForeignKey("users.id"))
+                        sa.ForeignKey("user.id"))
     user = orm.relation('User')
 
     def __repr__(self):

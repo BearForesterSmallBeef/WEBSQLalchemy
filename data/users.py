@@ -1,6 +1,7 @@
 import sqlalchemy as sa
 from datetime import datetime
 from .db_session import SqlAlchemyBase
+from sqlalchemy import orm
 
 
 class User(SqlAlchemyBase):
@@ -16,4 +17,4 @@ class User(SqlAlchemyBase):
     heshed_password = sa.Column(sa.String, nullable=True)
     # default значение по умолчанию
     create_date = sa.Column(sa.DateTime, default=datetime.now)
-
+    news = orm.relation("News", back_populates="user")
