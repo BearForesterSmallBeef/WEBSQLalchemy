@@ -21,3 +21,14 @@ def global_init(db_file):
     engine = sa.create_engine(conn_str, echo=False)
     # echo=True выводит сообщения в консоль, что дает удобную отладку
     __factory = orm.sessionmaker(build=engine)
+    # "noinspection PyUnresolvedReferences" не декларирует следущую строку
+    # noinspection PyUnresolvedReferences
+    from . import __all_models
+
+    # создали все объекты базы данных
+    SqlAlchemyBase.metadata.create_all(engine)
+
+
+def create_session() -> Session: # явно указываем, что функция возвращает объект Session
+    global __factory
+    return __factory()
