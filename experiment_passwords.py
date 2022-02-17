@@ -2,7 +2,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 
 password = input("Введите новый пароль?")
 # Создаем хэш для пароля:
-hashed_password = generate_password_hash(password)
+hashed_password = "pbkdf2:sha256:260000$8to3mH3HtIK5v5iu$14312cc99dd8c39f58172a5b3ba388e395b74a19fc2b12a8e056ed773c727b2b"
 # Выводим хэш:
 print(hashed_password)
 bool_check = False
