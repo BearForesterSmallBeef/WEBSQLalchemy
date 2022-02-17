@@ -17,4 +17,5 @@ class User(SqlAlchemyBase):
     heshed_password = sa.Column(sa.String, nullable=True)
     # default значение по умолчанию
     create_date = sa.Column(sa.DateTime, default=datetime.now)
+    # back_populates возвращвет нам значение конкретного пользователя из таблицы news
     news = orm.relation("News", back_populates="user")
