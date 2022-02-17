@@ -5,7 +5,7 @@ from sqlalchemy import orm
 
 
 class User(SqlAlchemyBase):
-    __tablename__ = "user"
+    __tablename__ = "users"
     # primary_key указывает на то, что столбец будет ключем, а autoincrement создает id
     id = sa.Column(sa.Integer, primary_key=True, autoincrement=True)
     # nullable означает что строечка может ничего не содержать
