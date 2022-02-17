@@ -19,6 +19,11 @@ def main():
     user = db_sess.query(User).first()
     print(user)
 
+    user = db_sess.query(User).filter(User.id == 3).first()
+    db_sess.delete(user)
+    print(user)
+    db_sess.commit()
+
 
 if __name__ == "__main__":
     main()
