@@ -19,3 +19,6 @@ class User(SqlAlchemyBase):
     create_date = sa.Column(sa.DateTime, default=datetime.now)
     # back_populates возвращвет нам значение конкретного пользователя из таблицы news
     news = orm.relation("News", back_populates="user")
+
+    def __repr__(self):
+        return f'<User> {self.id} {self.name} {self.email}'

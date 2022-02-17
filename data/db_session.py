@@ -20,7 +20,7 @@ def global_init(db_file):
 
     engine = sa.create_engine(conn_str, echo=False)
     # echo=True выводит сообщения в консоль, что дает удобную отладку
-    __factory = orm.sessionmaker(build=engine)
+    __factory = orm.sessionmaker(bind=engine)
     # "noinspection PyUnresolvedReferences" не декларирует следущую строку
     # noinspection PyUnresolvedReferences
     from . import __all_models
